@@ -1,0 +1,31 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }   // ext 키워드 : build.gradle 에서 사용하는 전역변수 설정
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+// 플러그인 의존성 적용 결정
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'springStudy'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}   // 원격저장소
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframewrok.boot:spring-boot-starter-test')
+}   // 의존성 선언
